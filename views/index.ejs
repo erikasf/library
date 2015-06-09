@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Books</title>
+</head>
+<body>
+	<h1>Books</h1>
+	<fieldset>
+		<legend>Books</legend>
+	
+	<form action="/new" method="POST">
+	<LABEL for="title"> what is the title?</LABEL>
+		<input type="text" name="title" id="title">
+		<label for="author">Name the Author</label>
+		<input type="text" name="author" id="author">
+		<label for ="year">What Year Was It Written?</label>
+		<input type="text" name="year" id="year">
+		<input type="submit" value="submit">
+	</form>
+	</fieldset>
+<% books.forEach(function(book) { %>
+	<p>
+	<a href="/<%=book.id%>"><%=book.title %></a>
+	
+	<%=book.author  %>
+	<%=book.year  %>
+	<%=book.id  %>
+	
+
+	<form method="POST" action="/delete/<%=book.id%>?_method=DELETE">
+		<input type="submit" name="delete" value="THE END">
+	</form>
+
+
+
+
+	</p>
+<% })%>
+
+
+</body>
+</html>
